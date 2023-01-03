@@ -76,10 +76,19 @@ for (let leg of legs) {
     bug.addChild(leg);
 }
 
+const body = PIXI.Sprite.from('assets/bug.png');
+body.scale.set(0.3);
+body.rotation = Math.PI / 2;
+body.position.set(45, -30);
+
+eyes.position.set(15, -20);
+
+bug.addChild(body);
+bug.addChild(eyes);
+
 bug.position.set(100);
 
 app.stage.addChild(background);
-app.stage.addChild(eyes);
 app.stage.addChild(bug);
 
 app.ticker.add(update);
