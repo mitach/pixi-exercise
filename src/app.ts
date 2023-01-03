@@ -39,6 +39,15 @@ app.stage.addChild(eyes);
 
 app.ticker.add(update);
 
-function update(dt: number) {
+function animateEyes(time: number) {
+    leftPupil.y = Math.sin(time / 20) * 3;
+    rightPupil.y = Math.sin(time / 20) * 3;
+}
 
+let elapsed = 0;
+
+function update(dt: number) {
+    elapsed += dt;
+
+    animateEyes(elapsed);
 }
