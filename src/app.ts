@@ -89,10 +89,22 @@ function animateEyes(time: number) {
     rightPupil.y = Math.sin(time / 20) * 3;
 }
 
+function animateLegs(time: number) {
+    for (let leg = 0; leg < legs.length; leg++) {
+    
+        if (leg == 0 || leg == 2 || leg == 3 || leg == 5) {
+            legs[leg].rotation = (Math.PI / 2) + Math.sin(time / 5) * (Math.PI / 12)
+        } else if (leg == 1 || leg == 4) {
+            legs[leg].rotation = (Math.PI / 2) - Math.sin(time / 5) * (Math.PI / 12);
+        }
+    }
+}
+
 let elapsed = 0;
 
 function update(dt: number) {
     elapsed += dt;
 
     animateEyes(elapsed);
+    animateLegs(elapsed);
 }
